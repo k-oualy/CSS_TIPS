@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>:has()</title>
+  <link rel="stylesheet" href="basic-styles.css">
+  <style>
+    html{
+      background: white;
+    }
+    body{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: rebeccapurple;
+      transition: 
+      scale .8s cubic-bezier(.9,0,.1,1),
+      border-radius .8s cubic-bezier(.9,0,.1,1);
+      &:has(.list:hover) {
+      scale: 95%;
+      border-radius: 1rem;
+      overflow: hidden;
+    }
+    &:has(.list:hover) h1 {
+      opacity: 1;
+      transform: translateY(-30px);
+    }
+    }
+    h1{
+      text-align: center;
+      opacity: 0;
+      transition: .5s
+    }
+    main{
+      width: 90%;
+    }
+    .list{
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
+        .item{
+          width: 120px;
+          height: 200px;
+          
+            img{
+              width: 100%;
+              height: 200px;
+              object-fit: cover;
+            }
+      }
+    }
+
+    .list {
+      transform-style: preserve-3d;
+      transform: perspective(1000px);
+    }
+    .list .item{
+      transition: .5s;
+      filter: brightness(0.2);
+    }
+    .list .item:hover {
+      filter: brightness(1);
+      transform: translateZ(200px);
+    }
+
+    /* .list .item:hover + .item {
+      filter: brightness(0.6);
+      transform: translateZ(150px) rotateY(40deg);
+    }
+     */
+    .list .item:hover + * {
+      filter: brightness(0.6);
+      transform: translateZ(150px) rotateY(40deg);
+    }
+
+    .list .item:hover + * + * {
+      filter: brightness(0.4);
+      transform: translateZ(70px) rotateY(20deg);
+    }
+
+    .list .item:hover + * + * + * {
+      filter: brightness(0.2);
+      transform: translateZ(30px) rotateY(10deg);
+    }
+
+    .list .item:has( + *:hover) {
+      filter: brightness(0.6);
+      transform: translateZ(150px) rotateY(-40deg);
+    }
+
+    .list .item:has( + * + *:hover) {
+      filter: brightness(0.4);
+      transform: translateZ(70px) rotateY(-20deg);
+    }
+
+    .list .item:has( + * + * + *:hover) {
+      filter: brightness(0.2);
+      transform: translateZ(30px) rotateY(-10deg);
+    }
+
+  </style>
+  
+</head>
+<body>
+  <main>
+    <h1>my awesome title</h1>
+    <div class="list">
+      <div class="item"><img src="images/img-1.jpg" alt="" srcset=""></div>
+      <div class="item"><img src="images/img-2.jpg" alt="" srcset=""></div>
+      <div class="item"><img src="images/img-3.jpg" alt="" srcset=""></div>
+      <div class="item"><img src="images/img-5.jpg" alt="" srcset=""></div>
+      <div class="item"><img src="images/img-6.jpg" alt="" srcset=""></div>
+      <div class="item"><img src="images/img-1.jpg" alt="" srcset=""></div>
+      <div class="item"><img src="images/img-11.jpg" alt="" srcset=""></div>
+      <div class="item"><img src="images/img-12.jpg" alt="" srcset=""></div>
+      <div class="item"><img src="images/img-14.jpg" alt="" srcset=""></div>
+    </div>
+  </main>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>color-scheme</title>
+  <link rel="stylesheet" href="basic-styles.css">
+  <style>
+
+    body{
+      color-scheme: light;
+      background-color: light-dark(#f7f7f7,#282626);;
+    }
+    input{
+      padding: 1em;
+      font-family: inherit;
+    }
+    form{
+      accent-color: light-dark(#e25846,#f5b62e);
+      caret-color: light-dark(#e25846,#f5b62e);
+    }
+    .dark{
+      color-scheme: dark;
+    }
+    
+  </style>
+</head>
+<body>
+
+  <form>
+    <input type="checkbox" id="accept">
+    <input type="radio"><br> 
+    <progress max="100" value="35"></progress> <br>
+    <input type="range"> <br>
+    <input type="text" placeholder="Enter Text">
+  </form>
+<div>
+  <button class="toggleButton">
+    Toggle mode
+  </button>
+  </div>
+</body>
+<script>
+  let body = document.querySelector("body");
+let button = document.querySelector(".toggleButton");
+
+button.addEventListener('click', () => {
+  event.preventDefault();
+  body.classList.toggle('dark');
+})
+</script>
+</html>

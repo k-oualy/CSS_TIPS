@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+:root {
+  color-scheme: light dark;
+}
+*{
+  margin: 0;
+  padding: 0;
+}
+body{
+  padding: 1em;
+  min-height: calc(100vh - 2em);
+  /* background-color: #0b0e18; */
+  /* display: grid; */
+  /* place-content: center; */
+  font-family: Poppins, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rebeccapurple;
+  position: relative;
+}
+h2{
+  color: white;
+}
+.toggleButton{
+  position: absolute;
+    top: 10px;
+    right: 10px;
+    content: '';
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: light-dark(gold , rgb(255, 166, 0) );
+    border: 0;
+    font-size: 0;
+    overflow: hidden;
+    transition: .3s;
+    &:after{
+      content: '';
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: light-dark(#52524e,rgb(255, 166, 0));
+      border: 0;
+      font-size: 0;
+      display: block;
+      position: absolute;
+      right: -6px;
+      top: -3px;
+    }
+}

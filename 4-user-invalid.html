@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>user-invalid</title>
+  <link rel="stylesheet" href="basic-styles.css">
+  <style>
+.form {
+    width: 90vw;
+    max-width: 30rem;
+    margin: 2rem auto;
+}
+
+.form__label {
+    display: block;
+    margin: 2rem 0 .5rem;
+}
+
+.form__input {
+    display: block;
+    width: 100%;
+    padding: .5em 1em;
+    margin: 0 0 .5rem;
+    
+    border: 1px solid #ccc;
+}
+
+.form__input--invalid:invalid {
+    border-color: red;
+    
+    & + .form__err-msg {
+        display: block;
+    }
+}
+
+.form__input--user-invalid:user-invalid {
+    border-color: red;
+    
+    & + .form__err-msg {
+        display: block;
+    }
+}
+
+/* 
+    Moz non-standard property that adopts similar standards
+    https://developer.mozilla.org/en-US/docs/Web/CSS/:-moz-ui-invalid
+*/
+.form__input--user-invalid:-moz-ui-invalid {
+    border-color: red;
+    
+    & + .form__err-msg {
+        display: block;
+    }
+}
+
+
+.form__err-msg {
+    display: none;
+    margin: 0;
+    color: red;
+    font-size: .7rem;
+}
+
+
+
+  </style>
+</head>
+<body>
+  <form class="form">
+    <h1>:user-invalid</h1>
+    <label for="email-1" class="form__label">
+        Email <small>:invalid</small>
+    </label>
+    <input id="email-1" type="email" placeholder=":invalid" class="form__input form__input--invalid" required>
+    <p class="form__err-msg">
+        Please insert a valid email-adress.
+    </p>
+    
+    <label for="email-2" class="form__label">
+        Email <small>:user-invalid</small>
+    </label>
+    <input id="email-2" type="email" placeholder=":user-invalid" class="form__input form__input--user-invalid" required>
+    <p class="form__err-msg">
+        Please insert a valid email-adress.
+    </p>
+    
+    <label for="text" class="form__label">
+        Name
+    </label>
+    <input id="text" type="text" placeholder="text" class="form__input" required>
+
+</form>
+</body>
+</html>
